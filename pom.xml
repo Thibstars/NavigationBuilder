@@ -3,7 +3,7 @@
     <groupId>be.thibaulthelsmoortel</groupId>
     <artifactId>navigation-builder</artifactId>
     <version>1.0</version>
-    <name>navigation-builder</name>
+    <name>NavigationBuilder</name>
     <packaging>bundle</packaging>
     <organization>
         <name>Vaadin Community</name>
