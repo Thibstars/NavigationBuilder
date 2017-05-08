@@ -1,6 +1,7 @@
 package be.thibaulthelsmoortel.navigationbuilder;
 
 import com.vaadin.server.Page;
+import com.vaadin.ui.UI;
 
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
@@ -31,9 +32,10 @@ public class NavigateExecutor {
             windowName = TARGET_BLANK;
         }
         if (!navigateSpecs.isToLocation()) {
-            Page.getCurrent().open(navigateSpecs.getUrl(), windowName, navigateSpecs.isTryAsPopup());
+            UI.getCurrent().access(() -> UI.getCurrent().getPage().open(navigateSpecs.getUrl(), windowName, navigateSpecs.isTryAsPopup()));
+
         } else {
-            Page.getCurrent().setLocation(navigateSpecs.getUrl());
+            UI.getCurrent().access(() -> UI.getCurrent().getPage().setLocation(navigateSpecs.getUrl()));
         }
 
         if (!navigateSpecs.getNavigationListeners().isEmpty()) {
