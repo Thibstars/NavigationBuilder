@@ -17,3 +17,28 @@ It enriches the existing functionality. No widgetset compiling required.
 5. Make use of pre-configured navigations;
 6. Attach your own listeners to be executed upon navigation;
 7. Navigate right away, or prepare your navigation and perform it later (or again).
+
+### Examples
+
+Immediate navigation to external url in new tab with listener:
+``` java
+NavigationUtils.navigate()
+                .to("www.google.com")
+                .inNewTab()
+                .withListener(event1 -> LOGGER.trace("Navigating to external url in a new tab."))
+                .go();
+```
+Immediate navigation to fragment with listener:
+``` java
+NavigationUtils.navigate()
+                    .toLocation("/register")
+                    .withListener(e -> LOGGER.trace("Navigating to " + e.getUrl()))
+                    .go();
+```
+Simple pre-configured navigations:
+``` java
+NavigationUtils.createReloadNavigation().withListener(l -> System.out.println("Page reloaded!")).go(); // Adding a listener to the pre-configured navigation.
+NavigationUtils.createBackNavigation().go(); // Go back one page in the browser history
+NavigationUtils.createNextNavigation().go(); // Go one page forward in the browser history
+```
+      
