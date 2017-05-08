@@ -63,8 +63,8 @@ public class NavigateBuilder {
     /**
      * Adds a listener to be executed upon navigation.
      *
-     * @param listener
-     * @return
+     * @param listener the listener to be executed upon navigation
+     * @return a self reference
      */
     public NavigateBuilder withListener(NavigationListener listener) {
         navigateSpecs.addListener(listener);
