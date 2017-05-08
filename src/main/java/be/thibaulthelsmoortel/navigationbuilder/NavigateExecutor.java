@@ -2,6 +2,9 @@ package be.thibaulthelsmoortel.navigationbuilder;
 
 import com.vaadin.server.Page;
 
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Class responsible for performing a already built navigation.
  *
@@ -36,6 +39,18 @@ public class NavigateExecutor {
         if (!navigateSpecs.getNavigationListeners().isEmpty()) {
             navigateSpecs.getNavigationListeners().forEach(l -> l.navigationPerformed(new NavigationEvent(this)));
         }
+    }
+
+    /**
+     * Performs the already built navigation after amount of time.
+     *
+     * @param time the time value
+     * @param timeUnit the time unit
+     */
+    public void performAfter(long time, TimeUnit timeUnit) {
+        NavigationTimerTask timerTask = new NavigationTimerTask(this);
+        Timer timer = new Timer();
+        timer.schedule(timerTask, timeUnit.convert(time, TimeUnit.MILLISECONDS));
     }
 
     protected NavigateSpecs getNavigateSpecs() {
