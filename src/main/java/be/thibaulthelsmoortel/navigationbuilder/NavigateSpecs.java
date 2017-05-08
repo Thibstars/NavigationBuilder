@@ -17,6 +17,8 @@ class NavigateSpecs {
     private boolean tryAsPopup;
     private boolean toLocation;
     private boolean reload;
+    private boolean toPrevious;
+    private boolean toNext;
     private List<NavigationListener> navigationListeners;
 
     /**

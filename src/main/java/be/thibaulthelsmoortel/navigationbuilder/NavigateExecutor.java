@@ -1,6 +1,7 @@
 package be.thibaulthelsmoortel.navigationbuilder;
 
 import com.vaadin.server.Page;
+import com.vaadin.ui.JavaScript;
 import com.vaadin.ui.UI;
 
 /**
@@ -25,8 +26,13 @@ public class NavigateExecutor {
         String windowName;
         UI ui = UI.getCurrent();
         Page page = ui.getPage();
+        JavaScript js = JavaScript.getCurrent();
         if (navigateSpecs.isReload()) {
             ui.access(page::reload);
+        } else if (navigateSpecs.isToPrevious()) {
+            js.execute("window.history.back();");
+        } else if (navigateSpecs.isToNext()) {
+            js.execute("window.history.forward();");
         } else {
             if (!navigateSpecs.isInNewTab()) {
                 String[] wname = new String[1];

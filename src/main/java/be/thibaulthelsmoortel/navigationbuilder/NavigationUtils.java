@@ -27,4 +27,26 @@ public class NavigationUtils {
         navigateBuilder.reload();
         return navigateBuilder;
     }
+
+    /**
+     * Returns a pre-configured back navigation.
+     *
+     * @return a pre-configured back navigation
+     */
+    public static NavigateBuilder createBackNavigation() {
+        NavigateBuilder navigateBuilder = new NavigateBuilder();
+        navigateBuilder.toPrevious();
+        return navigateBuilder;
+    }
+
+    /**
+     * Returns a pre-configured next navigation.
+     *
+     * @return a pre-configured next navigation
+     */
+    public static NavigateBuilder createNextNavigation() {
+        NavigateBuilder navigateBuilder = new NavigateBuilder();
+        navigateBuilder.toNext();
+        return navigateBuilder;
+    }
 }

@@ -26,6 +26,8 @@ public class NavigateBuilder {
         navigateSpecs.setUrl(url);
         navigateSpecs.setToLocation(false);
         navigateSpecs.setReload(false);
+        navigateSpecs.setToPrevious(false);
+        navigateSpecs.setToNext(false);
         return this;
     }
 
@@ -48,6 +50,30 @@ public class NavigateBuilder {
      */
     public NavigateBuilder reload() {
         navigateSpecs.setReload(true);
+        return this;
+    }
+
+    /**
+     * Use to the previous page in history.
+     * NOTE: this method executes a JavaScript snippet, which means the end user needs to use a
+     * JavaScript-enabled browser in order to make this work!
+     *
+     * @return a self-reference
+     */
+    public NavigateBuilder toPrevious() {
+        navigateSpecs.setToPrevious(true);
+        return this;
+    }
+
+    /**
+     * Use to navigate to the next page in history.
+     * NOTE: this method executes a JavaScript snippet, which means the end user needs to use a
+     * JavaScript-enabled browser in order to make this work!
+     *
+     * @return a self-reference
+     */
+    public NavigateBuilder toNext() {
+        navigateSpecs.setToNext(true);
         return this;
     }
 
