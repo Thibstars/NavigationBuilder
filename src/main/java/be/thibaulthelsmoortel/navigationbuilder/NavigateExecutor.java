@@ -1,6 +1,5 @@
 package be.thibaulthelsmoortel.navigationbuilder;
 
-import com.vaadin.server.Page;
 import com.vaadin.ui.UI;
 
 import java.util.Timer;
@@ -27,7 +26,9 @@ public class NavigateExecutor {
     public void perform() {
         String windowName;
         if (!navigateSpecs.isInNewTab()) {
-            windowName = Page.getCurrent().getWindowName();
+            String[] wname = new String[1];
+            UI.getCurrent().access(() -> wname[0] = UI.getCurrent().getPage().getWindowName());
+            windowName = wname[0];
         } else {
             windowName = TARGET_BLANK;
         }
