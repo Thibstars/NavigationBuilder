@@ -1,5 +1,6 @@
 package be.thibaulthelsmoortel.navigationbuilder;
 
+import com.vaadin.server.Page;
 import com.vaadin.ui.UI;
 
 /**
@@ -22,18 +23,24 @@ public class NavigateExecutor {
      */
     public void perform() {
         String windowName;
-        if (!navigateSpecs.isInNewTab()) {
-            String[] wname = new String[1];
-            UI.getCurrent().access(() -> wname[0] = UI.getCurrent().getPage().getWindowName());
-            windowName = wname[0];
+        UI ui = UI.getCurrent();
+        Page page = ui.getPage();
+        if (navigateSpecs.isReload()) {
+            ui.access(page::reload);
         } else {
-            windowName = TARGET_BLANK;
-        }
-        if (!navigateSpecs.isToLocation()) {
-            UI.getCurrent().access(() -> UI.getCurrent().getPage().open(navigateSpecs.getUrl(), windowName, navigateSpecs.isTryAsPopup()));
+            if (!navigateSpecs.isInNewTab()) {
+                String[] wname = new String[1];
+                ui.access(() -> wname[0] = ui.getPage().getWindowName());
+                windowName = wname[0];
+            } else {
+                windowName = TARGET_BLANK;
+            }
+            if (!navigateSpecs.isToLocation()) {
+                ui.access(() -> page.open(navigateSpecs.getUrl(), windowName, navigateSpecs.isTryAsPopup()));
 
-        } else {
-            UI.getCurrent().access(() -> UI.getCurrent().getPage().setLocation(navigateSpecs.getUrl()));
+            } else {
+                ui.access(() -> page.setLocation(navigateSpecs.getUrl()));
+            }
         }
 
         if (!navigateSpecs.getNavigationListeners().isEmpty()) {

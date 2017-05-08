@@ -16,6 +16,7 @@ class NavigateSpecs {
     private boolean inNewTab;
     private boolean tryAsPopup;
     private boolean toLocation;
+    private boolean reload;
     private List<NavigationListener> navigationListeners;
 
     /**

@@ -25,6 +25,7 @@ public class NavigateBuilder {
     public NavigateBuilder to(String url) {
         navigateSpecs.setUrl(url);
         navigateSpecs.setToLocation(false);
+        navigateSpecs.setReload(false);
         return this;
     }
 
@@ -41,6 +42,16 @@ public class NavigateBuilder {
     }
 
     /**
+     * Use to perform a refresh navigation.
+     *
+     * @return a self-reference
+     */
+    public NavigateBuilder reload() {
+        navigateSpecs.setReload(true);
+        return this;
+    }
+
+    /**
      * Will perform the navigation in a new tab.
      *
      * @return a self-reference
@@ -53,7 +64,7 @@ public class NavigateBuilder {
     /**
      * Will try to perform the navigation in a popup.
      *
-     * @return a self reference
+     * @return a self-reference
      */
     public NavigateBuilder tryToOpenAsPopup() {
         navigateSpecs.setTryAsPopup(true);
@@ -64,7 +75,7 @@ public class NavigateBuilder {
      * Adds a listener to be executed upon navigation.
      *
      * @param listener the listener to be executed upon navigation
-     * @return a self reference
+     * @return a self-reference
      */
     public NavigateBuilder withListener(NavigationListener listener) {
         navigateSpecs.addListener(listener);
