@@ -12,8 +12,8 @@ public class NavigationUtils {
      *
      * @return the builder for navigation creation
      */
-    public static NavigateBuilder navigate() {
-        return new NavigateBuilder();
+    public static NavigationBuilder navigate() {
+        return new NavigationBuilder();
     }
 
 
@@ -22,10 +22,10 @@ public class NavigationUtils {
      *
      * @return a pre-configured reload navigation
      */
-    public static NavigateBuilder createReloadNavigation() {
-        NavigateBuilder navigateBuilder = new NavigateBuilder();
-        navigateBuilder.reload();
-        return navigateBuilder;
+    public static NavigationBuilder createReloadNavigation() {
+        NavigationBuilder navigationBuilder = new NavigationBuilder();
+        navigationBuilder.reload();
+        return navigationBuilder;
     }
 
     /**
@@ -33,10 +33,10 @@ public class NavigationUtils {
      *
      * @return a pre-configured back navigation
      */
-    public static NavigateBuilder createBackNavigation() {
-        NavigateBuilder navigateBuilder = new NavigateBuilder();
-        navigateBuilder.toPrevious();
-        return navigateBuilder;
+    public static NavigationBuilder createBackNavigation() {
+        NavigationBuilder navigationBuilder = new NavigationBuilder();
+        navigationBuilder.toPrevious();
+        return navigationBuilder;
     }
 
     /**
@@ -44,9 +44,9 @@ public class NavigationUtils {
      *
      * @return a pre-configured next navigation
      */
-    public static NavigateBuilder createNextNavigation() {
-        NavigateBuilder navigateBuilder = new NavigateBuilder();
-        navigateBuilder.toNext();
-        return navigateBuilder;
+    public static NavigationBuilder createNextNavigation() {
+        NavigationBuilder navigationBuilder = new NavigationBuilder();
+        navigationBuilder.toNext();
+        return navigationBuilder;
     }
 }

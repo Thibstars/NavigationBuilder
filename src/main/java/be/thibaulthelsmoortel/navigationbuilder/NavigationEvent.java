@@ -12,22 +12,28 @@ public class NavigationEvent extends EventObject {
     /**
      * Constructs a prototypical Event.
      *
-     * @param source The object on which the Event initially occurred.
+     * @param executor The object on which the Event initially occurred.
      * @throws IllegalArgumentException if source is null.
      */
-    public NavigationEvent(Object source) {
-        super(source);
+    public NavigationEvent(NavigationExecutor executor) {
+        super(executor);
     }
 
     /**
-     * Returns the url of the performed navigation if the event source was an instance of {@link NavigateExecutor}.
+     * Returns the url of the performed navigation.
      *
      * @return the url of the performed navigation
      */
     public String getUrl() {
-        if (source instanceof NavigateExecutor) {
-            return ((NavigateExecutor) source).getNavigateSpecs().getUrl();
-        }
-        return null;
+        return ((NavigationExecutor) source).getNavigationSpecs().getUrl();
+    }
+
+    /**
+     * Returns the navigation type of the performed navigation.
+     *
+     * @return the navigation type of the performed navigation
+     */
+    public NavigationType getNavigationType() {
+        return ((NavigationExecutor) source).getNavigationSpecs().getNavigationType();
     }
 }
