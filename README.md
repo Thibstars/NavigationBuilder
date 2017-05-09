@@ -42,3 +42,20 @@ NavigationUtils.createBackNavigation().go(); // Go back one page in the browser 
 NavigationUtils.createNextNavigation().go(); // Go one page forward in the browser history
 ```
       
+Preparing multiple navigations, adding a listener to them and performing them (note that you probably wouldn't perform multiple navigations at the same time):
+``` java
+List<NavigationBuilder> navigations = new ArrayList<>();
+NavigationBuilder reload = NavigationUtils.navigate().reload();
+NavigationBuilder openGoogleInNewTab = NavigationUtils.navigate()
+        .to("http://www.google.com")
+        .inNewTab();
+NavigationListener navigationListener = navigationEvent -> {
+    LOGGER.info("Some custom navigation of type: {} was executed.", navigationEvent.getNavigationType());
+};
+navigations.add(reload);
+navigations.add(openGoogleInNewTab);
+navigations.forEach(builder -> {
+    builder.withListener(navigationListener);
+    builder.go();
+});
+```
