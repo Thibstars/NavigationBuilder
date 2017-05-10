@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>be.thibaulthelsmoortel</groupId>
   <artifactId>navigation-builder</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.3</version>
   <packaging>bundle</packaging>
   <name>NavigationBuilder</name>
   <organization>
@@ -20,7 +20,7 @@
   <scm>
     <connection>scm:git:git://github.com/Thibstars/NavigationBuilder.git</connection>
     <developerConnection>scm:git:ssh://git@github.com:/Thibstars/NavigationBuilder.git</developerConnection>
-    <tag>navigation-builder-1.1.1</tag>
+    <tag>navigation-builder-1.1.2</tag>
     <url>https://github.com/Thibstars/NavigationBuilder</url>
   </scm>
   <issueManagement>
@@ -28,7 +28,7 @@
     <url>https://github.com/Thibstars/NavigationBuilder/issues</url>
   </issueManagement>
   <properties>
-    <Vaadin-Addon>navigation-builder-1.1.2-SNAPSHOT.jar</Vaadin-Addon>
+    <Vaadin-Addon>navigation-builder-1.1.3-SNAPSHOT.jar</Vaadin-Addon>
     <Implementation-Title>NavigationBuilder</Implementation-Title>
     <Implementation-Vendor>Vaadin Community</Implementation-Vendor>
     <github.project>NavigationBuilder</github.project>
@@ -36,7 +36,7 @@
     <vaadin.plugin.version>8.0.3</vaadin.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <vaadin.version>8.0.3</vaadin.version>
-    <Implementation-Version>1.1.2-SNAPSHOT</Implementation-Version>
+    <Implementation-Version>1.1.3-SNAPSHOT</Implementation-Version>
     <github.account>Thibstars</github.account>
   </properties>
   <dependencies>
@@ -487,7 +487,7 @@
       </testResource>
     </testResources>
     <directory>target</directory>
-    <finalName>navigation-builder-1.1.2</finalName>
+    <finalName>navigation-builder-1.1.3</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
